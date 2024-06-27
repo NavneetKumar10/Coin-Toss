@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Toss</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background video -->
+    <video autoplay muted loop id="background-video">
+        <source src="Toss.mp4" type="video/mp4">
+    </video>
+    <!-- Main container -->
+    <div class="container">
+        <!-- Coin container -->
+        <div class="coin-container">
+            <!-- Coin element -->
+            <div class="coin" onclick="tossCoin()"></div>
+            <!-- Result images -->
+            <div class="result-images">
+                <img src="Heads.png" alt="Heads" class="heads-image">
+                <img src="Tails.png" alt="Tails" class="tails-image">
+            </div>
+            <!-- Result message -->
+            <div id="result-message" class="result-message"></div>
+            <!-- Spacer for spacing -->
+            <div class="spacer"></div>
+            <!-- Coin toss button -->
+            <button onclick="tossCoin()" class="coin-toss-button">Toss Coin</button>
+        </div>
+    </div>
+    <!-- JavaScript file -->
+    <script src="app.js"></script>
+</body>
+</html>

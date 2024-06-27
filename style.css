@@ -1,0 +1,134 @@
+/* Reset margin and padding for all elements, set box-sizing to border-box for consistent sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body element */
+body {
+    font-family: Arial, sans-serif; /* Set font family */
+    background-color: rgb(6, 1, 15); /* Set background color */
+    text-align: center; /* Center text */
+    position: relative; /* Set position to relative */
+    min-height: 100vh; /* Minimum height to full viewport height */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Set flex direction to column */
+}
+
+/* Add a semi-transparent overlay to the body */
+body::before {
+    content: ""; /* Empty content */
+    position: absolute; /* Absolute positioning */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(66, 26, 81, 0.875); /* Semi-transparent background */
+    z-index: 3; /* Layer it above the background video */
+}
+
+/* Style the background video */
+#background-video {
+    position: absolute; /* Absolute positioning */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire viewport */
+    z-index: 2; /* Layer it below the overlay */
+}
+
+/* Style the container div */
+.container {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Set flex direction to column */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    height: 145vh; /* Set height to 145% of viewport height */
+}
+
+/* Style the coin container */
+.coin-container {
+    position: absolute; /* Absolute positioning */
+    z-index: 4; /* Layer it above the overlay and video */
+    border-radius: 60%; /* Rounded corners */
+    padding: 20px; /* Padding inside the container */
+    top: 30%; /* Position it 30% from the top */
+}
+
+/* Style the coin element */
+.coin {
+    width: 100px; /* Set width */
+    height: 100px; /* Set height */
+    background-image: url('coin.png'); /* Set background image */
+    background-size: contain; /* Contain the background image */
+    background-repeat: no-repeat; /* Prevent background image repeat */
+    cursor: pointer; /* Set cursor to pointer */
+    position: relative; /* Relative positioning */
+    z-index: 6; /* Layer it above other elements */
+}
+
+/* Style the result images */
+.result-images img {
+    width: 100px; /* Set width */
+    height: 100px; /* Set height */
+    position: absolute; /* Absolute positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Translate to center */
+    display: none; /* Hide initially */
+}
+
+/* Style the result message */
+.result-message {
+    color: #ffffff; /* Set text color */
+    font-size: 24px; /* Set font size */
+    margin-top: -70px; /* Adjust top margin */
+    z-index: 5; /* Layer it above the overlay */
+    position: relative; /* Relative positioning */
+}
+
+/* Spacer div for spacing */
+.spacer {
+    height: 50px; /* Set height */
+}
+
+/* Style the coin toss button */
+.coin-toss-button {
+    padding: 15px 30px; /* Padding inside the button */
+    font-size: 20px; /* Set font size */
+    display: inline-block; /* Inline block display */
+    background-color: #fff; /* Set background color */
+    border: none; /* Remove border */
+    border-radius: 50px; /* Rounded corners */
+    cursor: pointer; /* Set cursor to pointer */
+    position: relative; /* Relative positioning */
+    z-index: 5; /* Layer it above the overlay */
+    margin-top: 55px; /* Set top margin */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow */
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
+/* Transform button on hover */
+.coin-toss-button:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+/* Define keyframes for flip animation */
+@keyframes flip {
+    0% {
+        transform: translateY(0) rotateY(0deg); /* Initial state */
+    }
+    50% {
+        transform: translateY(-8cm) rotateY(720deg); /* Mid-animation state */
+    }
+    100% {
+        transform: translateY(0) rotateY(1440deg); /* Final state */
+    }
+}
+
+/* Apply flip animation when flipping class is added */
+.flipping {
+    animation: flip 2s forwards; /* Animate with flip keyframes for 2 seconds */
+}
